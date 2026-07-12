@@ -8,20 +8,20 @@ export function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">
-              RJ<span className="text-red-600">Films</span>
+              RJ<span className="text-red-600">ustFitness</span>
             </h3>
             <p className="text-sm mb-4">
               Creating cinematic fitness content that inspires, motivates, and drives engagement 
               for influencers and brands.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-red-500 transition-colors">
+              <a href="https://www.instagram.com/r_justfitness/" className="hover:text-red-500 transition-colors">
                 <Instagram size={20} />
               </a>
               <a href="#" className="hover:text-red-500 transition-colors">
                 <Youtube size={20} />
               </a>
-              <a href="#" className="hover:text-red-500 transition-colors">
+              <a href="mailto:rjustfitness@gmail.com" className="hover:text-red-500 transition-colors">
                 <Mail size={20} />
               </a>
             </div>
@@ -58,18 +58,12 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-red-500" />
                 <a href="mailto:rj@rjfilms.com" className="hover:text-red-500 transition-colors">
-                  rj@rjfilms.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="text-red-500" />
-                <a href="tel:+15551234567" className="hover:text-red-500 transition-colors">
-                  (555) 123-4567
+                  rjustfitness@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin size={16} className="text-red-500" />
-                <span>Los Angeles, CA</span>
+                <span>Toronto, ON</span>
               </li>
             </ul>
           </div>
@@ -77,7 +71,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} RJFilms. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} RJustFitness. All rights reserved.</p>
         </div>
       </div>
     </footer>

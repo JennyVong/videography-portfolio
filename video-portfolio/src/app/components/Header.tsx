@@ -4,22 +4,18 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { NAV_ITEMS } from '@/app/constants';
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+}
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#pricing', label: 'Pricing' },
-    { href: '#works', label: 'Works' },
-  ];
-
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -30,34 +26,35 @@ export function Header() {
     }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+
           {/* Logo */}
-          <a href="#hero" className="text-2xl font-bold text-white">
-            RJ<span className="text-red-600">Films</span>
-          </a>
+          <button
+            onClick={() => scrollTo('hero')}
+            className="text-2xl font-bold text-white cursor-pointer"
+          >
+            RJ<span className="text-red-600">ustFitness</span>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-gray-300 hover:text-white transition-colors"
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="text-gray-300 hover:text-white transition-colors cursor-pointer"
               >
                 {item.label}
-              </a>
+              </button>
             ))}
             <Button
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="bg-red-600 text-white hover:bg-red-700"
+              onClick={() => scrollTo('contact')}
+              className="bg-red-600 text-white hover:bg-red-700 cursor-pointer"
             >
               Get Started
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon" className="text-white">
@@ -66,22 +63,17 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="bg-gray-900 border-gray-800">
               <div className="flex flex-col space-y-4 mt-8">
-                {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="text-gray-300 hover:text-white transition-colors px-2 text-lg"
-                    onClick={() => setMobileMenuOpen(false)}
+                {NAV_ITEMS.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => { scrollTo(item.id); setMobileMenuOpen(false); }}
+                    className="text-gray-300 hover:text-white transition-colors px-2 text-lg text-left"
                   >
                     {item.label}
-                  </a>
+                  </button>
                 ))}
                 <Button
-                  onClick={() => {
-                    const element = document.getElementById('contact');
-                    if (element) element.scrollIntoView({ behavior: 'smooth' });
-                    setMobileMenuOpen(false);
-                  }}
+                  onClick={() => { scrollTo('contact'); setMobileMenuOpen(false); }}
                   className="bg-red-600 text-white hover:bg-red-700 w-full"
                 >
                   Get Started
@@ -89,6 +81,7 @@ export function Header() {
               </div>
             </SheetContent>
           </Sheet>
+
         </div>
       </nav>
     </header>

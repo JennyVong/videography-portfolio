@@ -10,8 +10,8 @@ export default function RootLayout({ children, }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className="bg-gray-950 overscroll-none">
+      <body className="bg-gray-950 overscroll-none">{children}</body>
     </html>
   );
 }
