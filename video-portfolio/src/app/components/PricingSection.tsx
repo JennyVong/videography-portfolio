@@ -24,9 +24,7 @@ export function PricingSection() {
           </p>
         </div>
 
-        <div className={`grid gap-8 max-w-5xl mx-auto ${
-          RETAINER_PACKAGES.length === 1 ? 'max-w-lg' : 'md:grid-cols-2'
-        }`}>
+        <div className="grid gap-8 max-w-5xl mx-auto md:grid-cols-2">
           {RETAINER_PACKAGES.map((pkg) => (
             <PackageCard
               key={pkg.name}
