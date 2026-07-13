@@ -24,9 +24,8 @@ export function HeroSection({ featuredVideo }: HeroSectionProps) {
                 Hi, I'm RJ
               </h1>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Creating high-energy, scroll-stopping content for Instagram and TikTok.
-                I specialize in cinematic gym videos that capture the grind, motivation,
-                and raw intensity that makes fitness content go viral.
+                I create high-energy, scroll-stopping cinematic gym content for Instagram
+                and TikTok — capturing the grind, motivation, and raw intensity that makes fitness go viral.
               </p>
             </div>
             <div className="pt-4">
